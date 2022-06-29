@@ -1,0 +1,64 @@
+.burger {
+  position: fixed;
+  top: 4rem;
+  left: 4rem;
+  background: transparent;
+  width: 4rem;
+  height: 3.5rem;
+  cursor: pointer;
+  z-index: 100;
+  transition: left .22s ease-in;
+
+  &::before,
+  &::after,
+  span {
+    content: "";
+    position: absolute;
+    left: 0;
+    height: 0.7rem;
+    width: 100%;
+    background-color: #2D2442;
+    border-radius: .2rem;
+    transition: transform .22s ease-in, left .22s ease-in, background-color .22s ease-in;
+  }
+
+  &::before {
+    top: 0;
+  }
+
+  &::after {
+    bottom: 0;
+  }
+
+  span {
+    top: 1.4rem;
+  }
+
+  &.open {
+    left: 32rem;
+    color: #ffffff;
+    transition: overflow .22s ease-in-out, opacity .22s ease-in-out, left .22s ease-in;
+
+    &:before,
+    &:after,
+    span {
+      background-color: #ffffff;
+    }
+
+    span {
+      opacity: 0;
+      overflow: hidden;
+    }
+  }
+
+
+  &.open::before {
+    top: 1.4rem;
+    transform: rotate(-45deg);
+  }
+
+  &.open::after {
+    transform: rotate(45deg);
+    bottom: 1.5rem;
+  }
+}
